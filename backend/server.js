@@ -17,13 +17,13 @@ app.use(
   })
 );
 
-app.use(errorHandler);
-
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Welcome to the Support Desk API" });
 });
 
 // Routes
 app.use("/api/users", require("./routes/userRoute"));
+
+app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
